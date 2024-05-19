@@ -1,0 +1,51 @@
+/* Custom styles for the Navbar */
+.logo img {
+  height: 5rem;
+  width: 7rem;
+}
+
+.desktop-menu {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-link {
+  margin: 0 0.7vw;
+  text-transform: uppercase;
+}
+
+
+.login-button {
+  margin-left: 2vw;
+  border-radius: 2em;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+}
+
+.join-button {
+  margin-left: 1rem;
+  border-radius: 2em;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  background-color: #61dafb; /* Custom color for the join button */
+  color: #fff;
+}
+
+/* Styling for the mobile menu button */
+.mobile-menu-button {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu-button {
+    display: block;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}

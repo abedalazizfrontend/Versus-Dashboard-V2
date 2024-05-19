@@ -1,8 +1,6 @@
-import { Navigate, useRoutes } from 'react-router-dom';
-// layouts
+import { useRoutes } from 'react-router-dom';
+import { PrivateRoute } from './components/auth/PrivateRoute';
 import DashboardLayout from './layouts/dashboard';
-import LogoOnlyLayout from './layouts/LogoOnlyLayout';
-//
 import Blog from './pages/Blog';
 import User from './pages/User';
 import Login from './pages/Login';
@@ -10,8 +8,7 @@ import NotFound from './pages/Page404';
 import Register from './pages/Register';
 import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
-
-// ----------------------------------------------------------------------
+import Home from './pages/Home';
 
 export default function Router() {
   return useRoutes([
@@ -19,10 +16,11 @@ export default function Router() {
       path: '/dashboard',
       element: <DashboardLayout />,
       children: [
-        { path: 'app', element: <DashboardApp /> },
-        { path: 'user', element: <User /> },
-        { path: 'products', element: <Products /> },
-        { path: 'blog', element: <Blog /> },
+          { path: 'app', element: <PrivateRoute element={<DashboardApp />} /> },
+        { path: 'app', element: <PrivateRoute element={<DashboardApp />} /> },
+        { path: 'user', element: <PrivateRoute element={<User />} /> },
+        { path: 'products', element: <PrivateRoute element={<Products />} /> },
+        { path: 'blog', element: <PrivateRoute element={<Blog />} /> },
       ],
     },
     {
@@ -35,16 +33,11 @@ export default function Router() {
     },
     {
       path: '/',
-      element: <LogoOnlyLayout />,
-      children: [
-        { path: '/', element: <Navigate to="/dashboard/app" /> },
-        { path: '404', element: <NotFound /> },
-        { path: '*', element: <Navigate to="/404" /> },
-      ],
+      element: <Home />,
     },
     {
       path: '*',
-      element: <Navigate to="/404" replace />,
+      element: <NotFound />,
     },
   ]);
 }

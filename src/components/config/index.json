@@ -1,0 +1,140 @@
+{
+  "company": {
+    "name": "React landing page 2021",
+    "logo": "/assets/images/traderlogo.png"
+  },
+  "navigation": [
+    {
+      "name": "Features",
+      "href": "features"
+    },
+
+    {
+      "name": "Pricing",
+      "href": "pricing"
+    },
+    {
+      "name": "About",
+      "href": "about"
+    }
+  ],
+  "callToAction": {
+    "text": "Get started",
+    "href": "/login"
+  },
+  "mainHero": {
+    "title": "Traderzz ",
+    "subtitle": "Automate Your Trading, ",
+    "subtitle2": "Increase Your possibilities",
+    "description": "ReInvent-Trading,ReInvent-Investment.",
+    "img": "/assets/images/robot.png",
+    "primaryAction": {
+      "text": "Get started",
+      "href": "/login"
+    },
+    "secondaryAction": {
+      "text": "Email us",
+      "href": "mailto:info@traderzz.com?subject=New Customer From Traderzzone!"
+    }
+  },
+  "product": {
+    "title": "OBOS GRID",
+    "items": [
+      {
+        "title": "Make it your own!",
+        "description": "Stop losing your money to the markets. I'm Traderzz , the creator of highly valued and widely used indicators and trading robots on the internet. Welcome to OBOS GRID, my forex trading platform.",
+        "description2": "Enhance your trading with professional trading tools.",
+        "description3": "The mindset is the most important thing for successful trading. It's impossible to make money in the markets with the mindset of an employee civil servant or retiree. Thriving in the markets doesn't require great intelligence but it does require the right mindset. In trading like in life, you're your own worst enemy. You come to the markets pre-cursed, and if you're seeking income stability, the markets aren't for you.",
+
+        "img": "/assets/images/product2.jpg"
+      }
+    ]
+  },
+  "features": {
+    "title": "ForexBot Pro",
+    "subtitle": "Advanced Trading Strategy for Forex Markets",
+    "description": "Introducing ForexBot Pro, the ultimate solution for trading in the dynamic Forex markets. Our bot utilizes cutting-edge technology to provide you with the best trading experience.",
+    "items": [
+      {
+        "name": "feature1",
+        "description": "Advanced AI algorithms analyze market trends in real-time, ensuring precise trading decisions.",
+        "icon": "/assets/images/react.png"
+      },
+      {
+        "name": "feature2",
+        "description": "Built-in risk management tools protect your investments and optimize profit potential.",
+        "icon": "/assets/images/sales.png"
+      },
+      {
+        "name": "feature3",
+        "description": "Seamless integration with major Forex brokers for quick and hassle-free trading execution.",
+        "icon": "/assets/images/wallet.png"
+      },
+      {
+        "name": "feature4",
+        "description": "Access to comprehensive market data and analytics, empowering informed trading strategies.",
+        "icon": "/assets/images/sale.png"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "items": [
+      {
+        "name": "Free",
+        "price": "$0",
+        "priceDetails": "for one user",
+        "features": [
+          "1 user Accuont",
+          "Basic Support",
+          "Full Payback/cancellation",
+          "Optional Hosting Services"
+        ]
+      },
+      {
+        "name": "Pro",
+        "price": "$15",
+        "priceDetails": "per user",
+
+        "features": [
+          "1 user Accuont",
+          "Basic Support",
+          "Full Payback/cancellation",
+          "Optional Hosting Services"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "price": "$29",
+        "priceDetails": "per user",
+        "features": [
+          "1 user Accuont",
+          "Basic Support",
+          "Full Payback/cancellation",
+          "Optional Hosting Services"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "sections": [
+      {
+        "name": "Features",
+        "href": "features"
+      },
+
+      {
+        "name": "Pricing",
+        "href": "pricing"
+      },
+      {
+        "name": "About",
+        "href": "about"
+      }
+    ],
+    "socialMedia": {
+      "twitter": "#",
+      "linkedin": "#"
+    }
+  }
+}

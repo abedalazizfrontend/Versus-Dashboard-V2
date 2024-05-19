@@ -1,21 +1,17 @@
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// form
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-// @mui
 import { Stack, IconButton, InputAdornment } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-// components
 import Iconify from '../../../components/Iconify';
 import { FormProvider, RHFTextField } from '../../../components/hook-form';
-
-// ----------------------------------------------------------------------
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function RegisterForm() {
   const navigate = useNavigate();
-
   const [showPassword, setShowPassword] = useState(false);
 
   const RegisterSchema = Yup.object().shape({
@@ -37,13 +33,25 @@ export default function RegisterForm() {
     defaultValues,
   });
 
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-  } = methods;
+  const { handleSubmit, formState: { isSubmitting } } = methods;
 
-  const onSubmit = async () => {
-    navigate('/dashboard', { replace: true });
+  const onSubmit = async (data) => {
+    const fullName = `${data.firstName} ${data.lastName}`;
+  
+    try {
+      // Remove firstName and lastName from data
+      const { firstName, lastName, ...requestData } = data;
+  
+      const response = await axios.post('http://192.168.1.121:3060/users/register', {
+        ...requestData,
+        name: fullName
+      });
+      navigate('/login')
+      toast.success(response.data.Message);
+      
+    } catch (error) {
+      toast.error(error.response.data.error);
+    }
   };
 
   return (

@@ -1,21 +1,19 @@
-import * as Yup from 'yup';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// form
+import { useAuth } from '../../../components/auth/AuthContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-// @mui
-import { Link, Stack, IconButton, InputAdornment } from '@mui/material';
+import * as Yup from 'yup';
+import { Stack, IconButton, InputAdornment } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-// components
 import Iconify from '../../../components/Iconify';
-import { FormProvider, RHFTextField, RHFCheckbox } from '../../../components/hook-form';
-
-// ----------------------------------------------------------------------
+import { FormProvider, RHFTextField } from '../../../components/hook-form';
+import { useState } from 'react';
 
 export default function LoginForm() {
   const navigate = useNavigate();
-
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({
@@ -34,13 +32,18 @@ export default function LoginForm() {
     defaultValues,
   });
 
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-  } = methods;
+  const { handleSubmit, formState: { isSubmitting } } = methods;
 
-  const onSubmit = async () => {
-    navigate('/dashboard', { replace: true });
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post('http://192.168.1.121:3060/users/login', data);
+      const token = response.data.token;
+      localStorage.setItem('token', token);
+      login(); 
+      navigate('/dashboard', { replace: true });
+    } catch (error) {
+      toast.error('Invalid email or password');
+    }
   };
 
   return (
@@ -64,14 +67,7 @@ export default function LoginForm() {
         />
       </Stack>
 
-      <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-        <RHFCheckbox name="remember" label="Remember me" />
-        <Link variant="subtitle2" underline="hover">
-          Forgot password?
-        </Link>
-      </Stack>
-
-      <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
+      <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} className='mt-3'>
         Login
       </LoadingButton>
     </FormProvider>

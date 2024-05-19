@@ -78,8 +78,8 @@ export default function Register() {
 
         {mdUp && (
           <SectionStyle>
-            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Manage the job more effectively with Versus
+            <Typography variant="h4" sx={{ px: 5, mt: 10, mb: 5 }}>
+            Automate Your Trading, Increase Your possibilities
             </Typography>
             <img alt="register" src="/static/illustrations/illustration_register.png" />
           </SectionStyle>
@@ -91,7 +91,7 @@ export default function Register() {
               Get started absolutely free.
             </Typography>
 
-            <Typography sx={{ color: 'text.secondary', mb: 5 }}>Free forever. No credit card needed.</Typography>
+            <Typography sx={{ color: 'text.secondary', mb: 5 }}>Free forever. No credit card For Regiseration.</Typography>
 
             <AuthSocial />
 
